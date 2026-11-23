@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Ridebox — Home{% endblock %}
+
+{% block content %}
+
+    <!-- ===== Popup ต้อนรับ (เด้งครั้งแรกที่เปิดเว็บ) ===== -->
+    <div id="welcomePopup" class="popup-overlay">
+        <div class="popup-box">
+            <div class="popup-logo">🚲⚡</div>
+            <div class="popup-brand">Ridebox.com</div>
+            <h2>เลือกภาษา / Choose language</h2>
+            <button class="popup-btn" data-lang="th">ไทย</button>
+            <button class="popup-btn" data-lang="en">English</button>
+        </div>
+    </div>
+
+    <div class="p-5 mb-4 text-center rounded-3 hero">
+        <h1 class="display-5 fw-bold">Welcome to Ridebox</h1>
+        <p class="lead mb-4">ปั่นจักรยาน = ผลิตไฟฟ้าใช้เองที่บ้าน</p>
+        <a href="{{ url_for('product') }}" class="btn btn-success btn-lg">ดูสินค้า</a>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 text-center">
+            <h3 class="fw-semibold">How our company works</h3>
+            <p class="lead text-muted mt-3">
+                Ridebox คือสตาร์ทอัพด้านไมโครเอเนอร์จี ผู้พัฒนาชุดกักเก็บพลังงานจากการปั่นจักรยานสำหรับบ้านและธุรกิจขนาดเล็ก
+                โดยชูจุดเด่นด้านความปลอดภัยของแบตเตอรี่ LiFePO4, ติดตั้งง่าย และขยายความจุได้
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-4 text-center">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">🔋</div>
+                <h5>แบตเตอรี่ LiFePO4</h5>
+                <p class="text-muted">ปลอดภัย อายุการใช้งานยาว</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h5>ติดตั้งง่าย</h5>
+                <p class="text-muted">ต่อกับจักรยานที่มีอยู่แล้วได้</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h5>ขยายความจุได้</h5>
+                <p class="text-muted">เพิ่มแบตเตอรี่ได้ตามการใช้งาน</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+{% endblock %}

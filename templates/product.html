@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Ridebox — Products{% endblock %}
+
+{% block content %}
+    <h2 class="fw-bold mt-4 mb-4">สินค้าของเรา</h2>
+
+    <div class="row g-4">
+        {% for p in products %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-img-placeholder">🚲⚡</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ p.name }}</h5>
+                    <p class="card-text text-muted">{{ p.description }}</p>
+                    <p class="mb-1"><strong>ความจุ:</strong> {{ "{:,}".format(p.capacity_wh or 0) }} Wh</p>
+                    <p class="fs-5 fw-bold text-success">{{ "{:,}".format(p.price) }} บาท</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p class="text-muted">ยังไม่มีสินค้า</p>
+        {% endfor %}
+    </div>
+{% endblock %}

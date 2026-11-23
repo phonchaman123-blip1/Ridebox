@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Ridebox — Login{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center fw-bold mb-4">เข้าสู่ระบบ</h3>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                </form>
+                <p class="text-muted small text-center mt-3 mb-0">ทดลองใช้: admin / admin123</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

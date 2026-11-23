@@ -1,0 +1,50 @@
+/* ===== ทั่วไป ===== */
+body { padding-top: 70px; }
+.page-content { min-height: 70vh; }
+
+.hero { background-color: #7fffd4; color: #333; }
+
+.feature-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 28px 20px;
+    height: 100%;
+}
+.feature-icon { font-size: 40px; margin-bottom: 8px; }
+
+.card-img-placeholder {
+    height: 160px;
+    background: #e9fff7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+}
+
+/* ===== Popup ต้อนรับ ===== */
+.popup-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0, 0, 0, .45);
+    display: flex; align-items: center; justify-content: center;
+    animation: fadeIn .25s ease;
+}
+.popup-box {
+    background: #fff; width: 90%; max-width: 420px;
+    padding: 36px 32px; border-radius: 12px; text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .25);
+    animation: popUp .3s ease;
+}
+.popup-logo { font-size: 56px; margin-bottom: 4px; }
+.popup-brand { font-weight: 700; color: #198754; font-size: 20px; margin-bottom: 16px; }
+.popup-box h2 { margin: 0 0 20px; font-size: 22px; font-weight: 500; }
+.popup-btn {
+    display: block; width: 100%; margin-top: 12px; padding: 12px;
+    background: #fff; color: #198754; border: 1px solid #198754;
+    font-size: 16px; cursor: pointer; border-radius: 6px;
+}
+.popup-btn:hover { background: #7fffd4; }
+.popup-hidden { display: none; }
+
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes popUp { from { transform: scale(.9); opacity: 0 } to { transform: scale(1); opacity: 1 } }

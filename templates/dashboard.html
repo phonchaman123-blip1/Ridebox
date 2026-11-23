@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Ridebox — Dashboard{% endblock %}
+
+{% block content %}
+    <h2 class="fw-bold mt-4">Dashboard</h2>
+    <p class="text-muted">สวัสดี {{ session.get('user') }} — จัดการสินค้าได้ที่นี่</p>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h5 class="mb-3">เพิ่มสินค้าใหม่</h5>
+        <form method="POST" action="{{ url_for('add_product') }}" class="row g-2">
+            <div class="col-md-3"><input name="name" class="form-control" placeholder="ชื่อสินค้า" required></div>
+            <div class="col-md-4"><input name="description" class="form-control" placeholder="คำอธิบาย"></div>
+            <div class="col-md-2"><input name="capacity_wh" type="number" class="form-control" placeholder="ความจุ (Wh)"></div>
+            <div class="col-md-2"><input name="price" type="number" class="form-control" placeholder="ราคา" required></div>
+            <div class="col-md-1"><button class="btn btn-success w-100">เพิ่ม</button></div>
+        </form>
+    </div>
+
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr><th>#</th><th>ชื่อสินค้า</th><th>ความจุ</th><th>ราคา</th><th></th></tr>
+        </thead>
+        <tbody>
+            {% for p in products %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ "{:,}".format(p.capacity_wh or 0) }} Wh</td>
+                <td>{{ "{:,}".format(p.price) }} บาท</td>
+                <td class="text-end">
+                    <form method="POST" action="{{ url_for('delete_product', product_id=p.id) }}" class="d-inline">
+                        <button class="btn btn-sm btn-outline-danger">ลบ</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
