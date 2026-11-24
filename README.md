@@ -17,7 +17,7 @@ venv\Scripts\activate        # Windows
 pip install -r requirements.txt
 python app.py
 ```
-Open http://127.0.0.1:5000 — demo login: `admin` / `admin123`
+After running locally, open `http://127.0.0.1:5000` — demo login: `admin` / `admin123`
 
 ## Run with Docker
 ```bash
